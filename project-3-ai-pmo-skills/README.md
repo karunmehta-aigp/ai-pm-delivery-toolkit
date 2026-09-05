@@ -1,4 +1,4 @@
-# Skills
+# Project 3 — AI-PMO Skills
 
 This folder will hold reusable AI-PMO skills — implementations of the Agent/Skill roles defined in [Project 2 — AI PM Prompts](../project-2-ai-prompts/#ai-pmo-agent-and-skill-architecture).
 
