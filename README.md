@@ -9,10 +9,9 @@
 
 ## Table of Contents
 
-1. [Part 1 — Enterprise AI Program Management Prompt Library](#part-1--enterprise-ai-program-management-prompt-library) — the governed, auditable prompt catalog (PM-01 through AI-PM-05)
+1. [Part 1 — Enterprise AI Program Management Prompt Library](#part-1--enterprise-ai-program-management-prompt-library) — the governed, auditable prompt catalog (PM-01 through AI-PM-05), each with a sample output
 2. [Part 2 — AI PM Learning Roadmap](#part-2--ai-pm-learning-roadmap) — concepts and phases for learning AI program management
-3. [Part 3 — Interview Drilling Prompts](#part-3--interview-drilling-prompts) — prompts with snapshots for interview practice
-4. [Part 4 — Lifecycle Prompt Map](#part-4--lifecycle-prompt-map) — day-to-day prompts organized by program lifecycle phase
+3. [Part 3 — Lifecycle Prompt Map](#part-3--lifecycle-prompt-map) — day-to-day prompts organized by program lifecycle phase
 
 ---
 
@@ -28,8 +27,6 @@ The design deliberately separates three responsibilities:
 - **The project manager validates.** The PM checks source records, challenges assumptions, resolves conflicts, and confirms owners and dates.
 - **Authorized stakeholders decide.** Sponsors, product owners, risk partners, and governance bodies retain approvals and accountability.
 
-The library can be used with ChatGPT, Claude, Microsoft Copilot, Gemini, or another enterprise-approved language model. It is tool-neutral and designed for both traditional and Agile delivery.
-
 ## What Makes This Library Different
 
 Many prompt collections stop at generating polished text. This library treats AI output as a **governed project artifact**. Every core prompt is designed to produce:
@@ -40,11 +37,7 @@ Many prompt collections stop at generating polished text. This library treats AI
 - source traceability and a validation checklist;
 - human approval before commitments, external communication, or system action.
 
----
-
 ## KM-PROMPT Method
-
-Use the KM-PROMPT method to create or improve any project-management prompt.
 
 | Element | Meaning | What to provide |
 |---|---|---|
@@ -59,7 +52,7 @@ Use the KM-PROMPT method to create or improve any project-management prompt.
 
 ## Standard Control Wrapper
 
-Add this wrapper to any prompt in the library when the output will support a material project decision.
+Add this wrapper to any prompt when the output will support a material project decision.
 
 ```
 Use only the information I provide and clearly identified general project-management methods.
@@ -74,8 +67,6 @@ Control requirements:
 7. Mark every item that requires accountable human review or approval.
 8. End with a validation checklist: source accuracy, owner confirmation, date confirmation, dependency check, risk review, and required approvals.
 ```
-
----
 
 ## Prompt Catalog
 
@@ -112,9 +103,7 @@ Control requirements:
 | AI-PM-04 | AI-Assisted PM Output Validation | AI Assurance | Validation record |
 | AI-PM-05 | Prompt Evaluation and Change Control | Prompt Governance | Prompt test and approval record |
 
----
-
-## 1. Intake and Initiation
+### 1. Intake and Initiation
 
 <details>
 <summary><strong>PM-01 · Project Intake and Prioritization</strong></summary>
@@ -148,12 +137,21 @@ Output:
 - Conditions to advance
 - Named decision owner and required governance forum
 ```
+
+**Sample output:**
+> Recommendation: advance to discovery — problem and sponsor are clearly defined, but funding and success metrics need refinement before full approval.
+>
+> | Criterion | Weight | Score (1–5) | Weighted |
+> |---|---|---|---|
+> | Strategic alignment | 25% | 4 | 1.00 |
+> | Business value | 20% | 3 | 0.60 |
+> | Delivery risk | 15% | 2 | 0.30 |
+>
+> Total: 3.2/5 — conditional advance, pending funding confirmation from Finance.
 </details>
 
 <details>
 <summary><strong>PM-02 · Project Charter Builder</strong></summary>
-
-**Use when:** A project needs a clear and reviewable authorization baseline.
 
 ```
 Act as a senior program manager. Draft a project charter from the approved inputs below.
@@ -174,12 +172,13 @@ Create:
 
 Flag missing or contradictory information. Do not convert targets into commitments or list anyone as an approver unless the source record explicitly authorizes that role.
 ```
+
+**Sample output:**
+> Executive summary drafted (1 paragraph). SMART objectives: 3 defined, 1 flagged as not measurable ("improve customer experience" — needs a metric). Governance model: Sponsor = VP Operations, PM authority = Tier 2. Approval table lists 4 roles; 1 marked "Pending signature."
 </details>
 
 <details>
 <summary><strong>PM-03 · Stakeholder Map and RACI</strong></summary>
-
-**Use when:** Accountability, engagement, or decision ownership is unclear.
 
 ```
 Act as a program governance lead. Build a stakeholder engagement plan and RACI for [PROJECT/PROGRAM].
@@ -201,11 +200,16 @@ Analyze each stakeholder's influence, impact, interest, expectations, decision a
 
 Do not infer authority from job title alone. Mark every unconfirmed assignment as Proposed until the accountable leader validates it.
 ```
+
+**Sample output:**
+> | Deliverable | R | A | C | I |
+> |---|---|---|---|---|
+> | Data migration plan | Data lead | Program sponsor | Security, Legal | All workstream leads |
+>
+> Flag: two stakeholders both marked "Accountable" on the vendor onboarding row — needs sponsor resolution before the RACI can be finalized.
 </details>
 
----
-
-## 2. Planning, Estimation, and Controls
+### 2. Planning, Estimation, and Controls
 
 <details>
 <summary><strong>PM-04 · Scope and Requirements Baseline</strong></summary>
@@ -227,6 +231,9 @@ Produce:
 
 Preserve the language of approved requirements where precision matters. Do not silently resolve contradictions; surface them for decision.
 ```
+
+**Sample output:**
+> 12 functional requirements, 5 non-functional, each with a unique ID and traceability link. 2 requirements flagged as contradictory — the data retention window conflicts with a compliance requirement — surfaced as an open decision, not resolved silently.
 </details>
 
 <details>
@@ -252,6 +259,13 @@ Tasks:
 
 Output a table with WBS ID, activity, deliverable, owner, duration, predecessor, dependency type, start, finish, milestone, acceptance evidence, float, and confidence. Flag dates that cannot be supported by the supplied estimates.
 ```
+
+**Sample output:**
+> | WBS ID | Activity | Owner | Start | Finish | Float |
+> |---|---|---|---|---|---|
+> | 1.2 | Data pipeline build | Data eng | Mar 3 | Mar 21 | 0 days (critical) |
+>
+> Two downstream milestones flagged as unsupported by the current estimate confidence — recommend revisiting before baselining.
 </details>
 
 <details>
@@ -273,6 +287,9 @@ Then:
 
 Treat proposed dates as unconfirmed unless evidence shows a commitment by the accountable provider.
 ```
+
+**Sample output:**
+> 7 dependencies logged. 1 circular dependency detected — Team A needs Team B's API, Team B needs Team A's schema first. Top risk: vendor environment access, need-by date still unconfirmed by the vendor.
 </details>
 
 <details>
@@ -292,6 +309,13 @@ Inputs: [WORK ITEMS, O/M/P VALUES, TEAM ASSUMPTIONS, HISTORICAL ANALOGS, RISKS, 
 
 Produce a table showing O, M, P, expected estimate, standard deviation, confidence, estimator, basis of estimate, exclusions, risks, and contingency rationale. Aggregate only compatible units. Explain uncertainty drivers and run sensitivity analysis for the top three variables. Clearly distinguish effort, duration, elapsed time, and story points. End with questions the delivery team must answer before accepting the estimate.
 ```
+
+**Sample output:**
+> | Item | O | M | P | PERT | Std Dev |
+> |---|---|---|---|---|---|
+> | API integration | 5d | 8d | 15d | 8.7d | 1.7d |
+>
+> Sensitivity: vendor API documentation quality is the single biggest uncertainty driver — recommend a documentation spike before committing the estimate.
 </details>
 
 <details>
@@ -318,6 +342,9 @@ Output:
 
 Do not recommend named-person assignments as final unless the responsible manager confirms availability.
 ```
+
+**Sample output:**
+> Net capacity: 340 hrs/sprint. Demand: 410 hrs. Gap: −70 hrs (over-allocated). Bottleneck: only one engineer is certified on the legacy system — flagged as key-person risk requiring a mitigation plan.
 </details>
 
 <details>
@@ -340,6 +367,9 @@ Output:
 
 Do not claim precision beyond the quality of progress and cost data. Flag division-by-zero, inconsistent cut-off dates, and subjective percent-complete inputs.
 ```
+
+**Sample output:**
+> SPI: 0.87 (behind schedule). CPI: 0.94 (slightly over budget). EAC (CPI-adjusted): $1.42M vs. BAC $1.30M. Data-quality flag: two work packages report inconsistent percent-complete methods, reducing forecast confidence.
 </details>
 
 <details>
@@ -354,11 +384,12 @@ Classify each item correctly as Risk, Assumption, Issue, or Dependency. Remove d
 
 Output the updated RAID table, top exposures, overdue actions, trend, decisions required, and proposed escalations. Never mark an item closed without closure evidence and owner confirmation.
 ```
+
+**Sample output:**
+> 14 items classified: 6 Risks, 3 Assumptions, 3 Issues, 2 Dependencies. Top exposure: vendor SLA risk, residual score 12/25 (High). Two items marked "closed" in the source notes were reopened pending actual closure evidence.
 </details>
 
----
-
-## 3. Agile and Scaled Delivery
+### 3. Agile and Scaled Delivery
 
 <details>
 <summary><strong>PM-11 · User Stories and Acceptance Criteria</strong></summary>
@@ -383,6 +414,9 @@ For each story provide:
 
 Split stories that are too large and explain the split. Do not add business rules not present in the source; list them as questions.
 ```
+
+**Sample output:**
+> Story: "As a claims adjuster, I want auto-populated fields from prior claims so that I reduce manual entry." 6 acceptance criteria including one edge case (duplicate claim ID) and one accessibility criterion. Split recommended — the original story exceeded a single sprint's worth of effort.
 </details>
 
 <details>
@@ -408,6 +442,9 @@ Tasks:
 
 Output committed proposal, stretch items, capacity math, goal-to-story traceability, dependencies, risks, owner confirmations, and planning questions. The team, not the AI, makes the final commitment.
 ```
+
+**Sample output:**
+> Sprint goal: "Ship the automated data-validation step end-to-end." Committed: 32 points (within the 28–36 velocity range). Stretch: 8 points. One dependency flagged as blocking until Tuesday.
 </details>
 
 <details>
@@ -430,6 +467,9 @@ Create:
 
 Identify sequencing conflicts, integration bottlenecks, environment/data constraints, and objectives that lack measurable value. Keep preliminary plans clearly marked until teams and business owners validate them.
 ```
+
+**Sample output:**
+> 5 teams, 3 cross-team dependencies flagged as uncommitted. 2 PI objectives lack a measurable result and were returned for rework. Confidence vote scheduled pending dependency resolution.
 </details>
 
 <details>
@@ -451,11 +491,16 @@ Identify:
 
 Output a concise table with item, evidence, impact, owner, next action, due time/date, escalation threshold, and status. Follow it with the top three delivery risks and a proposed agenda for targeted follow-ups. Do not use individual activity counts as a performance judgment and do not turn the stand-up into a status report to management.
 ```
+
+**Sample output:**
+> | Item | Blocker age | Owner | Next action | Due |
+> |---|---|---|---|---|
+> | Environment access | 3 days | Infra lead | Escalate to manager | Today 3pm |
+>
+> Top 3 risks: environment access, one Sev-2 defect, and one dependency due in 2 days.
 </details>
 
----
-
-## 4. Execution, Reporting, and Decisions
+### 4. Execution, Reporting, and Decisions
 
 <details>
 <summary><strong>PM-15 · Weekly Executive Status</strong></summary>
@@ -477,6 +522,9 @@ Produce:
 
 Use concise executive language. Do not average away a critical workstream. Distinguish current facts from forecast. If the overall status conflicts with component status, explain why. Include source cut-off time and confidence/data-quality note.
 ```
+
+**Sample output:**
+> Overall: Amber (schedule slipping, budget on track). One decision needed by Friday: a scope trade-off on the reporting module. Data confidence: high (cutoff yesterday 5pm).
 </details>
 
 <details>
@@ -499,6 +547,9 @@ Output:
 
 Do not present a single deterministic date when uncertainty is material.
 ```
+
+**Sample output:**
+> Most-likely completion: June 14 (range: June 8–June 24). Driver: velocity dropped 15% after two team members rotated off. Recommend reforecast if next sprint's velocity doesn't recover.
 </details>
 
 <details>
@@ -517,6 +568,9 @@ Determine whether this is a clarification, defect, regulatory requirement, depen
 
 Provide options: approve, reject, defer, split into MVP/later phase, or swap equal-priority scope. For each option show tradeoffs and residual risks. Produce a change-control record with recommendation, decision owner, decision-by date, implementation conditions, baseline updates, communications, and evidence required. Do not treat silence or meeting discussion as approval.
 ```
+
+**Sample output:**
+> Classification: scope change (not a clarification). Impact: +3 weeks to critical path, +$40K. Recommendation: defer to phase 2 — pending sponsor decision by Wednesday.
 </details>
 
 <details>
@@ -544,6 +598,9 @@ Create:
 
 Show how the recommendation changes if the top assumption is wrong. The memo supports the decision owner; it does not make the decision.
 ```
+
+**Sample output:**
+> Decision: RAG vs. fine-tune for the support bot. Recommendation: RAG — reversible, faster to iterate, no retraining cost. If the assumption "data changes weekly" is wrong, fine-tune becomes more attractive due to lower long-term latency.
 </details>
 
 <details>
@@ -565,6 +622,9 @@ Output:
 
 Do not provide legal conclusions. Flag clauses requiring procurement or legal interpretation, and require authorized approval before sending notices, accepting deliverables, changing access, or committing funds.
 ```
+
+**Sample output:**
+> 2 of 5 deliverables behind committed date. SLA trend: declining (3 late deliveries in 60 days). Recommend escalation per contract clause 4.2 — flagged for procurement review, not yet sent.
 </details>
 
 <details>
@@ -586,11 +646,12 @@ Produce:
 
 Do not infer agreement from discussion. Quote only short phrases when required to resolve ambiguity. Mark owner or due date as Unconfirmed when not explicit. End with a validation request the meeting chair can use before publishing the minutes.
 ```
+
+**Sample output:**
+> 3 confirmed decisions, 5 actions (all with a named owner and due date except one, marked Unconfirmed). One statement flagged as ambiguous — "we might revisit the timeline" — not treated as a decision.
 </details>
 
----
-
-## 5. Quality, Release, Recovery, and Closure
+### 5. Quality, Release, Recovery, and Closure
 
 <details>
 <summary><strong>PM-20 · Quality and UAT Readiness</strong></summary>
@@ -612,6 +673,9 @@ Assess:
 
 Output a workstream heatmap, criterion-by-criterion evidence table, blockers, conditional-entry items, decision owners, and recommendation: Ready, Ready with Conditions, or Not Ready. Do not infer readiness from percentage complete alone or close a criterion without evidence.
 ```
+
+**Sample output:**
+> Recommendation: Ready with Conditions. 2 Sev-2 defects open with documented workarounds. 1 workstream (reporting) missing business owner sign-off — the blocking condition.
 </details>
 
 <details>
@@ -628,6 +692,9 @@ For every failed or conditional gate, show impact, compensating control, expirat
 
 The authorized release authority makes the final decision. Never convert an unresolved critical defect or missing mandatory approval into a conditional pass without documented exception authority.
 ```
+
+**Sample output:**
+> Recommendation: Conditional Go. Security gate passed. Rollback rehearsal not yet completed — compensating control: manual rollback runbook approved by the ops lead, expires in 48 hours.
 </details>
 
 <details>
@@ -647,6 +714,9 @@ Create a three-horizon plan:
 
 Provide recovery options with cost/schedule/scope tradeoffs, protected outcomes, work to pause, decision rights, daily/weekly cadence, leading indicators, exit criteria, and stakeholder communication drafts. Do not promise recovery dates unsupported by a bottom-up plan and capacity validation.
 ```
+
+**Sample output:**
+> Root cause: decision latency (avg. 9 days per governance decision) — not a resourcing problem. 0–72h: freeze new scope, name a single decision owner. 30–90 days: rebuild trust via two consecutive on-time milestones.
 </details>
 
 <details>
@@ -668,6 +738,9 @@ Produce:
 
 Avoid hindsight bias and individual blame. Distinguish confirmed evidence from hypotheses. Do not close an action because a document was updated; define evidence that the new control works in practice.
 ```
+
+**Sample output:**
+> Root cause (Five Whys): the monitoring alert threshold was never validated against real production traffic patterns. 3 corrective actions identified, 1 preventive action added directly to the release checklist template.
 </details>
 
 <details>
@@ -691,11 +764,12 @@ Output:
 
 Do not let a mathematical score replace strategic judgment. Highlight low-confidence estimates and stakeholder overrides for transparent approval.
 ```
+
+**Sample output:**
+> Method: WSJF. Top-ranked item scores 18.2 (cost of delay 91 ÷ job size 5). 2 items marked mandatory (regulatory) regardless of score. Now/Next/Later split: 4 items in Now, 6 in Next.
 </details>
 
----
-
-## 6. AI Program Delivery and Governance
+### 6. AI Program Delivery and Governance
 
 <details>
 <summary><strong>AI-PM-01 · AI Use-Case Intake and Risk Triage</strong></summary>
@@ -716,6 +790,9 @@ Assess:
 
 Output an intake record, missing evidence, preliminary risk classification, control obligations, RACI, and recommendation: discovery, conditional assessment, hold, or reject. Cite authoritative internal policy and current law only when supplied or independently verified. Mark legal interpretation for counsel.
 ```
+
+**Sample output:**
+> Preliminary risk tier: Medium-High (affects credit decisions). Recommendation: conditional assessment — requires bias testing and human-override design before advancing. One data-residency question flagged for legal counsel.
 </details>
 
 <details>
@@ -735,6 +812,9 @@ Evaluate requirements and evidence for:
 
 Define test datasets, acceptance thresholds, accountable owners, evidence artifacts, and release gates. Separate offline evaluation, pre-production testing, pilot monitoring, and production monitoring. Recommend Ready, Ready with Conditions, or Not Ready. Never claim that one aggregate score proves safety or compliance.
 ```
+
+**Sample output:**
+> Groundedness score: 87% on the golden set (threshold: 90%) — Not Ready. Recommendation: improve retrieval chunking, then re-test. Prompt-injection tests: passed 18 of 20 adversarial cases.
 </details>
 
 <details>
@@ -758,6 +838,9 @@ Produce:
 
 Do not authorize production actions. Require accountable human approval for irreversible, external, financial, legal, safety, identity, access, or high-impact decisions.
 ```
+
+**Sample output:**
+> Autonomy tier: L2 (Recommend only). Action-permission matrix: 6 actions require human approval, 2 are pre-approved and reversible. Kill switch tested successfully in sandbox; production kill switch not yet verified — blocking issue.
 </details>
 
 <details>
@@ -783,6 +866,9 @@ Validate across these dimensions:
 
 Return a finding log with severity, evidence, correction, owner, and disposition. Provide an overall result: Pass, Pass with Corrections, or Fail. Do not rewrite a material finding out of the record; preserve the original, correction, reviewer, and approval trail.
 ```
+
+**Sample output:**
+> Result: Pass with Corrections. One finding: a forecast date was presented with false precision (a single date, no range) — corrected to a 3-scenario range. Source traceability: 9 of 10 claims traced back to a source record.
 </details>
 
 <details>
@@ -801,9 +887,10 @@ Assess clarity, task coverage, factuality controls, refusal behavior, prompt-inj
 
 Output a test matrix, findings, proposed changes, regression impacts, residual risks, approval owner, effective date, rollback version, and monitoring plan. Do not promote the prompt based only on a few successful examples. Require revalidation after material changes to the prompt, model, tools, data, policy, or use case.
 ```
-</details>
 
----
+**Sample output:**
+> Test matrix: 22 cases (12 positive, 6 adversarial, 4 boundary). 2 failures: the prompt leaked a bracketed placeholder in output under a stale-data test. Recommendation: revise and retest before promoting to a shared asset.
+</details>
 
 ## AI-PMO Agent and Skill Architecture
 
@@ -864,8 +951,6 @@ Every PMO agent or skill should define the following before use:
 | Change | Version control, test suite, approval, deployment, and rollback process |
 | Evidence | Input references, model/prompt/tool versions, output, reviewer, and decision |
 
----
-
 ## Prompt Chaining Patterns
 
 Use small, inspectable stages instead of asking one prompt to perform an entire program-management process.
@@ -881,8 +966,6 @@ PM-04 Traceability → PM-20 UAT Readiness → PM-21 Go/No-Go → PM-23 Lessons 
 
 **AI Delivery Chain**
 AI-PM-01 Intake → AI-PM-02 or AI-PM-03 Readiness → AI-PM-04 Output Validation → AI-PM-05 Prompt Change Control → Human Approval
-
----
 
 ## Implementation Roadmap
 
@@ -908,8 +991,6 @@ Track value and control performance together.
 | Governance | Source citation rate, human-review completion, unauthorized-action count, audit completeness |
 | Reliability | Failure rate, stale-data detection, alert precision, rollback success |
 
----
-
 ## Example: Multi-Workstream Program
 
 A program manager coordinating 16 workstreams can apply the library as follows:
@@ -922,8 +1003,6 @@ A program manager coordinating 16 workstreams can apply the library as follows:
 - Use **PM-21** to prepare the final release decision pack while retaining human approval.
 
 The AI accelerates synthesis and highlights inconsistencies. Workstream leads remain responsible for their evidence, the program manager validates the integrated view, and authorized stakeholders retain sign-off.
-
----
 
 ## Source Inspiration and Attribution
 
@@ -939,21 +1018,6 @@ This master page is original content synthesized from general project/program ma
 | alexgrebeshok-coder/ai-pmo-skills | PMO skill modularity, planning, progress, risk, forecasting, executive dashboards, resource allocation, and alerts |
 
 Review and comply with each source repository's current license before reusing its original content. This page does not incorporate repository-specific local paths, private templates, industry-specific legal instructions, or domain-specific automation commands.
-
-## Repository Placement
-
-Recommended folder:
-```
-project-14-enterprise-ai-program-management-prompt-library/
-└── README.md
-```
-
-Recommended root README entry:
-```
-| 14 | [Enterprise AI Program Management Prompt Library](./project-14-enterprise-ai-program-management-prompt-library/) | Project delivery · AI governance · Agentic controls | 30 governed prompts + AI-PMO agent architecture |
-```
-
----
 
 ## Closing Principle
 
@@ -1044,119 +1108,7 @@ Undemonstrated knowledge is invisible in an interview.
 
 ---
 
-# Part 3 — Interview Drilling Prompts
-
-
-Ready-to-use prompts for drilling AI PM interview skills, each with a snapshot underneath showing what a strong response looks like. Use these with any AI tool as a sparring partner, or answer them cold and compare.
-
----
-
-### 1. Technical Translation
-
-**Prompt:**
-> Play four roles in sequence for the same incident — an ML engineer, a data engineer, a product manager, and a VP — each describing a model regression in their own language. Then have me, the Program Manager, respond with one synthesis that connects all four framings and proposes a next step.
-
-**Snapshot:**
-> ML engineer: "overfitting on the training distribution." Data engineer: "feature store latency causing training-serving skew." PM: "user experience feels inconsistent." VP: "why is this taking so long?" — My synthesis: all four are describing the same skew between what the model was trained on and what it's seeing live. Next step: pull a 48-hour diagnostic comparing training vs. serving feature distributions before committing to a fix timeline.
-
----
-
-### 2. Root Cause Diagnosis
-
-**Prompt:**
-> Give me a root-cause scenario: a metric regressed suddenly (accuracy, downvotes, latency — pick one) after a recent change. Walk me through the Segment → Correlate → Isolate framework as I diagnose it live, and push back if I skip a step.
-
-**Snapshot:**
-> Scenario: accuracy dropped from 91% to 82% after a data refresh. Segment: by user cohort, by input length, by data source. Correlate: does the drop align with the refresh timestamp across all segments or just one? Isolate: pull the delta between old and new training data for the affected segment — most likely a label distribution shift, not a code bug.
-
----
-
-### 3. Trade-off Reasoning
-
-**Prompt:**
-> Present me with a trade-off decision an AI PM would actually face (ship now vs. wait for accuracy, RAG vs. fine-tune, build vs. buy). Make me state my recommendation with reasoning, not just list the options.
-
-**Snapshot:**
-> Ship at 85% accuracy or wait for 92%? Recommendation: ship at 85% behind a feature flag to a 10% cohort, with a defined rollback trigger and a two-week timeline to close the gap — because the cost of learning from real usage outweighs the cost of a short delay, as long as the failure mode isn't safety-critical.
-
----
-
-### 4. Governance-in-Parallel
-
-**Prompt:**
-> Describe an AI feature at the point where it's ready for a governance review. Ask me to lay out the review checklist and where governance touchpoints should have occurred *earlier* in the timeline, not just at the end.
-
-**Snapshot:**
-> Feature: an AI-generated customer response tool. Checklist: data provenance sign-off (should've happened at data collection), bias/eval review (should've been a gate before fine-tuning started, not after), rollback and human-override path (should be designed before launch, not bolted on). Governance isn't the last box — it's checkpoints threaded through the loop.
-
----
-
-### 5. Risk Register Building
-
-**Prompt:**
-> Give me a one-line description of a new AI program. I'll respond with a risk register: five risks, each tagged with failure mode type (drift, data quality, training-serving skew, cold start, feedback loop corruption, eval gap) and one mitigation.
-
-**Snapshot:**
-> Program: AI-powered internal HR FAQ bot. Risk: eval gap — no shared definition of "good enough" between HR and eng. Mitigation: define a golden test set with HR before training starts, sign-off required before any launch gate.
-
----
-
-### 6. Cost Modeling
-
-**Prompt:**
-> Describe an AI program's rough scale (queries/day, model size, retraining cadence). Ask me to walk through the cost model out loud — training cost, inference cost, retraining cost — and flag which line item leadership will push back on hardest.
-
-**Snapshot:**
-> 500K queries/day, mid-size fine-tuned model, monthly retraining. Inference cost dominates at this volume — that's the line leadership will push on. Recommendation: model a smaller distilled version for high-volume simple queries, reserve the larger model for complex cases.
-
----
-
-### 7. Change Management / Adoption
-
-**Prompt:**
-> Give me a scenario where a team is resisting an AI tool rollout. Have me name the *specific* rational fear behind the resistance (not just "resistance to change") and propose an adoption plan addressing that fear directly.
-
-**Snapshot:**
-> Resistance: support agents distrust the AI's accuracy on edge cases. Root fear: getting blamed for an AI mistake they didn't make. Adoption plan: transparent accuracy dashboard, an easy override path, and a two-week "AI suggests, human decides" period before autonomy increases.
-
----
-
-### 8. Crisis / Escalation Drill
-
-**Prompt:**
-> Hit me with a live-fire escalation: a metric spiked, a stakeholder is panicking, or a vendor just changed terms on me. Give me 60 seconds to respond, then critique whether I stayed calm, stated next steps, and avoided over-promising.
-
-**Snapshot:**
-> Escalation: "Your LLM API provider just raised prices 40%." Response: acknowledge impact, don't commit to a number yet, name the levers (renegotiate volume tier, evaluate a second provider, or reduce token usage via caching) and commit to a cost-impact readout within 48 hours.
-
----
-
-### 9. STAR Story Extraction
-
-**Prompt:**
-> Ask me one behavioral question at a time from this list: program planning under uncertainty, stakeholder alignment, technical translation, risk management, a hard trade-off call, change management, incident response. After each answer, tell me which part of STAR was weakest.
-
-**Snapshot:**
-> Question: "Tell me about a time you managed conflicting timelines." Weak spot flagged: strong Situation and Action, but no measurable Result — always close with a number or a concrete outcome, even an approximate one.
-
----
-
-### 10. Role & Layer Framing
-
-**Prompt:**
-> Give me a company type and a stack layer (infra / model / application) and ask me to describe how the AI PM role would differ there versus a generic answer.
-
-**Snapshot:**
-> Company: mid-size SaaS company, application layer. Role reality: less model-building judgment, more prompt/eval iteration speed and vendor management (since the model itself is usually third-party). Governance focus shifts toward data handling and output review rather than training data provenance.
-
----
-
-## How to use this library
-Run through 2–3 prompts per session, out loud where possible. Treat each snapshot as a floor, not a ceiling — your real answer should be more specific and grounded in an artifact or story you've actually built.
-
----
-
-# Part 4 — Lifecycle Prompt Map
+# Part 3 — Lifecycle Prompt Map
 
 
 One library, correlated from the patterns that keep showing up across the best public prompt repos (category-tagged prompt tables, `SKILL.md`-style structure, named-command shorthand, and trigger→output agent skills) — rebuilt here for AI Program/Project Management specifically, with a snapshot under every prompt so you can see the expected output before you run it.
