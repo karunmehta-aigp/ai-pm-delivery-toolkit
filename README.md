@@ -25,12 +25,3 @@ This repository is organized into standalone projects, each focused on a differe
 - **Standing up a new AI program?** Start with [Project 1's lifecycle and workstream model](./project-1-ai-program-delivery/#5-end-to-end-ai-program-lifecycle) to see where each governance gate and required artifact sits.
 
 ---
-
-## About
-
-Senior Technical Program Manager with 20+ years of experience leading enterprise technology transformation, AI initiatives, quality engineering, and large-scale delivery programs across Financial Services, Wealth Management, Capital Markets, and FinTech.
-
-**Areas of expertise:** AI Governance (AIGP) · AI Program Management · AI Quality Engineering · Responsible AI · Prompt Engineering · Enterprise AI Delivery · Agile / SAFe / PMP
-
-🔗 [LinkedIn](https://www.linkedin.com/in/karun-mehta-aigp-pmp-csm-2a9a155/)
-📧 karunmehta9@gmail.com
