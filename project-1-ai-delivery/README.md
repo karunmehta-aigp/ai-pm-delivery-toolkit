@@ -1,4 +1,4 @@
-Project 1 - Enterprise AI Program Delivery Playbook
+roject 1 - Enterprise AI Program Delivery Playbook
 
 Author: Karun Mehta, AIGP, PMP
 
