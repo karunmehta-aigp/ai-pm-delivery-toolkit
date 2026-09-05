@@ -1027,8 +1027,43 @@ AI can accelerate project management work, but it must not obscure accountabilit
 
 # Part 2 — AI PM Learning Roadmap
 
-
 A practical map for operating as a Program Manager on AI initiatives. Organized around one core idea: **the AI is one variable in the program — the program management around it is the whole job.**
+
+## Roadmap at a Glance
+
+| Phase | Focus | Target Duration | Deliverable |
+|---|---|---|---|
+| 1 | Baseline AI literacy | 2–3 weeks | Can follow a technical review without translation |
+| 2 | AI lifecycle & failure modes | 2 weeks | Risk register mapped to real AI failure patterns |
+| 3 | Judgment layer (trade-offs, root cause, governance) | 3–4 weeks | Can defend a recommendation under pushback |
+| 4 | Change management & adoption | 1–2 weeks | Adoption plan for a real or simulated rollout |
+| 5 | Proof — mini program build | 2–3 weeks | One end-to-end artifact (working prototype + docs) |
+| 6 | Artifact library | Ongoing | Risk framework, governance template, scorecard |
+| 7 | STAR story bank | 1 week | 6–8 adaptable behavioral stories |
+| 8 | Interview drilling | 1–2 weeks | Pressure-tested answers, recorded and reviewed |
+| 9 | Role/company-fit calibration | Ongoing | Clear read on which AI PM lane fits a given role |
+
+```mermaid
+gantt
+    title AI PM Learning Roadmap
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+    section Foundations
+    Phase 1 - Baseline literacy       :p1, 2026-01-01, 18d
+    Phase 2 - Lifecycle and failure modes :p2, after p1, 14d
+    section Judgment
+    Phase 3 - Trade-offs and governance  :p3, after p2, 24d
+    Phase 4 - Change management        :p4, after p3, 10d
+    section Proof
+    Phase 5 - Mini program build       :p5, after p4, 18d
+    Phase 6 - Artifact library         :p6, after p5, 14d
+    section Interview Ready
+    Phase 7 - STAR story bank          :p7, after p6, 7d
+    Phase 8 - Interview drilling       :p8, after p7, 10d
+    Phase 9 - Role and fit calibration     :p9, after p8, 7d
+```
+
+**Note on Phases 5–9:** these run partly in parallel with a real job search rather than strictly sequentially — the mini program build (5) and artifact library (6) feed directly into the STAR stories (7), and interview drilling (8) continues right up to the interview itself while role-fit calibration (9) is refined per opportunity.
 
 ---
 
