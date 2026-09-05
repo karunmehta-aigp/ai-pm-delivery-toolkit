@@ -887,32 +887,3 @@ Output a test matrix, findings, proposed changes, regression impacts, residual r
 **Illustrative output snapshot:**
 > Test matrix: 22 cases (12 positive, 6 adversarial, 4 boundary). 2 failures: the prompt leaked a bracketed placeholder in output under a stale-data test. Recommendation: revise and retest before promoting to a shared asset.
 </details>
-
-## AI-PMO Agent and Skill Architecture
-
-The prompts above are safe for human-in-the-loop use. Recurring work can be packaged as AI-PMO skills or agents, but automation should be introduced only when ownership, data access, validation, monitoring, and failure handling are defined.
-
-| Agent/Skill | Trigger | Reads | Drafts/Analyzes | Human Control Point |
-|---|---|---|---|---|
-| Intake Analyst | New demand submitted | Intake form, strategy, portfolio | Completeness, scoring, routing | Portfolio owner approves disposition |
-| Planning and Scheduling Analyst | Scope baseline approved | WBS, estimates, calendars | Milestones, dependencies, critical-path candidates | PM and workstream leads accept baseline |
-| Estimation and Capacity Analyst | Estimate or reforecast requested | Backlog, historicals, availability | PERT, demand/capacity, scenarios | Delivery team owns estimates; managers approve allocation |
-| RAID and Dependency Analyst | New status data or trigger | RAID, plan, defects, vendor data | Scores, trends, alerts, actions | Risk owners accept response; governance accepts risk |
-| Delivery Control Analyst | Daily/weekly cadence | Boards, plans, actuals, quality | Variance, EVM, forecast, bottlenecks | PM validates status and corrective actions |
-| Quality and Release Analyst | Entry/exit or release gate | RTM, tests, defects, controls | Readiness and residual-risk pack | Business, technology, risk, and release authorities decide |
-| Executive Reporting Analyst | Reporting cut-off | Validated program sources | One-page status and decisions needed | PM signs off before distribution |
-| AI Governance Assurance Analyst | AI gate or material change | Inventory, risk, controls, evals | Classification, gaps, evidence mapping | AI governance body authorizes progression |
-
-### Orchestration Flow
-
-```mermaid
-flowchart TD
-    A[Approved source records] --> B[Specialized PM skill]
-    B --> C[Schema and control validation]
-    C --> D{Material decision or action?}
-    D -- No --> E[PM-reviewed draft]
-    D -- Yes --> F[Named human approval]
-    F --> G[Authorized system action]
-    E --> H[Evidence and version log]
-    G --> H
-```
