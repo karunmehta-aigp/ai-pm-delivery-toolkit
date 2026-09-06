@@ -1,4 +1,4 @@
-# Project 3 — AI Investment Banking PMO Skills
+# Project 3 — AI PMO Skills
 
 **Author:** Karun Mehta · AIGP · PMP
 
