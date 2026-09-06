@@ -277,11 +277,6 @@ The planned skills are framework-aligned and are not substitutes for organizatio
 - Claude Code Skills Documentation
 - Claude Code Plugin Documentation
 
----
-
-## Design Source and Adaptation
-
-The folder-based `SKILL.md` approach was informed by the public AI-PMO Skills repository, which implements project-management skills for construction and infrastructure. Its industry-specific content was not reused as an enterprise AI control model. This project introduces a separate AI program lifecycle, skills taxonomy, artifact model, governance boundaries, and cross-functional delivery workflows.
 
 ---
 
