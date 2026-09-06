@@ -355,12 +355,6 @@ The planned skills are framework-aligned and are not substitutes for organizatio
 
 ---
 
-## Design Source and Adaptation
-
-The folder-based `SKILL.md` approach was informed by the public AI-PMO Skills repository, which implements project-management skills for construction and infrastructure. Its industry-specific content was not reused as an enterprise AI control model. This project introduces a separate AI program lifecycle, skills taxonomy, artifact model, governance boundaries, and cross-functional delivery workflows.
-
----
-
 ## Important Notice
 
 This repository is an educational portfolio and delivery accelerator. It does not provide legal, financial, investment, compliance, risk-acceptance, security, privacy, model-validation, or production approval. Outputs require validation and review by authorized organizational stakeholders before use.
