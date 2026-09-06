@@ -267,6 +267,82 @@ project-3-ai-pmo-skills/
 
 ---
 
+## Planned Output Formats
+
+Once implemented, the AI PMO skills will produce structured program-management and governance artifacts in formats appropriate for enterprise delivery workflows:
+
+- **Markdown (.md)** — Program charters, delivery plans, governance summaries, decision records, and reusable documentation
+- **Excel (.xlsx)** — Integrated roadmaps, RAID logs, dependency trackers, resource-capacity plans, budget forecasts, evaluation scorecards, and benefits registers
+- **Word (.docx)** — Executive status reports, business cases, governance-review packages, operating procedures, and formal program documentation
+- **PDF (.pdf)** — Finalized steering-committee packs, approval packages, audit evidence summaries, and controlled reports
+- **CSV (.csv)** — Structured data exports for portfolio tools, dashboards, reporting platforms, and system integration
+- **JSON or YAML (.json/.yaml)** — Skill configuration, control rules, evaluation thresholds, workflow metadata, and alert definitions
+- **Presentation (.pptx)** — Executive steering updates, program health reviews, roadmap presentations, and decision-support materials
+
+Output formats will depend on the selected skill, available source information, organizational requirements, and enabled document-generation capabilities.
+
+---
+
+## Target Implementation Requirements
+
+The planned implementation may require:
+
+- **Claude Code** or another compatible skill-execution environment
+- A configured `.claude-plugin` directory or project-level `.claude/skills` structure
+- Implemented and validated `SKILL.md` files
+- Approved program inputs, templates, policies, control requirements, and source records
+- Optional spreadsheet, document, PDF, and presentation-generation capabilities
+- Access to authorized delivery, governance, reporting, and knowledge-management systems when integrations are enabled
+- Human review and approval for controlled business, risk, compliance, financial, security, model-validation, and production decisions
+
+The requirements above describe the intended target state. The executable skills, integrations, and document-generation capabilities are not yet available in this repository.
+
+---
+
+## Example Artifact Packages
+
+### AI Use-Case Intake Package
+- Structured use-case intake record
+- Business problem and expected outcome
+- Stakeholder and ownership map
+- Preliminary risk classification
+- Data and technology discovery actions
+- Initial proceed, revise, defer, or reject recommendation
+
+### AI Program Planning Package
+- Integrated delivery roadmap
+- Cross-functional workstream plan
+- Milestone and governance-gate calendar
+- RAID and decision log
+- Dependency and critical-path analysis
+- Resource-capacity and budget forecast
+
+### Model Evaluation and Governance Package
+- Model evaluation plan
+- Quality metrics and acceptance thresholds
+- Responsible AI control plan
+- Evidence and traceability register
+- Identified control gaps and remediation actions
+- Residual-risk and approval-status summary
+
+### Release and Operational Readiness Package
+- Pilot and production-readiness checklist
+- Go/no-go decision package
+- Cutover, rollback, and support plan
+- Monitoring metrics and escalation thresholds
+- Change-management and adoption plan
+- Required approvals and evidence status
+
+### Executive Steering Package
+- Overall program health
+- Progress against milestones and expected value
+- Key risks, issues, dependencies, and decisions
+- Budget, resource, and AI-cost status
+- Model-quality, adoption, operational, and compliance metrics
+- Executive actions and decisions required
+
+---
+
 ## Reference Baseline
 
 The planned skills are framework-aligned and are not substitutes for organizational policy, legal interpretation, compliance review, risk acceptance, security approval, financial approval, model validation, or production authorization. Each organization should configure its own policies, control requirements, thresholds, approval authorities, and risk appetite.
@@ -277,6 +353,11 @@ The planned skills are framework-aligned and are not substitutes for organizatio
 - Claude Code Skills Documentation
 - Claude Code Plugin Documentation
 
+---
+
+## Design Source and Adaptation
+
+The folder-based `SKILL.md` approach was informed by the public AI-PMO Skills repository, which implements project-management skills for construction and infrastructure. Its industry-specific content was not reused as an enterprise AI control model. This project introduces a separate AI program lifecycle, skills taxonomy, artifact model, governance boundaries, and cross-functional delivery workflows.
 
 ---
 
