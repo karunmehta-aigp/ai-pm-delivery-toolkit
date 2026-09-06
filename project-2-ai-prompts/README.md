@@ -64,16 +64,16 @@ Control requirements:
 6. Do not send messages, modify systems, assign resources, change scope, approve funding, accept risk, or make a release decision.
 7. Mark every item that requires accountable human review or approval.
 8. End with a validation checklist: source accuracy, owner confirmation, date confirmation, dependency check, risk review, and required approvals.
-
 ```
 
-Standardized Prompt Format
+## Standardized Prompt Format
+
 Every prompt follows the same validated structure:
 
+```
 # [Prompt Name]
 
 ## Metadata
-
 - **ID**: `category-prompt-slug`
 - **Version**: 1.0.0
 - **Category**: Primary category
@@ -83,11 +83,9 @@ Every prompt follows the same validated structure:
 - **Models**: Claude 3+, GPT-4+
 
 ## Overview
-
 2-3 sentences explaining what the prompt does and who it's for.
 
 ## When to Use
-
 - Specific scenario 1
 - Specific scenario 2
 
@@ -127,42 +125,46 @@ Hard boundaries and limitations
 ## Example Usage
 
 ### Input
-
 Realistic user request (20-200 words)
 
 ### Output
-
 Representative response demonstrating quality (100-600 words)
 
 ## Related Prompts
-
 Links to complementary prompts
-XML Tag Structure
+```
+
+### XML Tag Structure
+
 The prompt section uses semantic XML tags for consistent parsing:
 
-Tag	Purpose	Content
-<role>	Expert identity	Specific credentials, experience, reasoning approach
-<context>	Situation framing	When used, success criteria, key assumptions
-<input_handling>	Input specification	Required vs optional inputs with defaults
-<task>	Process steps	3-7 numbered action steps
-<output_specification>	Deliverable format	Format, length, structure, must-include elements
-<quality_criteria>	Success measures	Objective standards and anti-patterns
-<constraints>	Hard boundaries	Non-negotiable limits on scope/format
-Quality Gates
+| Tag | Purpose | Content |
+|---|---|---|
+| `<role>` | Expert identity | Specific credentials, experience, reasoning approach |
+| `<context>` | Situation framing | When used, success criteria, key assumptions |
+| `<input_handling>` | Input specification | Required vs optional inputs with defaults |
+| `<task>` | Process steps | 3-7 numbered action steps |
+| `<output_specification>` | Deliverable format | Format, length, structure, must-include elements |
+| `<quality_criteria>` | Success measures | Objective standards and anti-patterns |
+| `<constraints>` | Hard boundaries | Non-negotiable limits on scope/format |
+
+### Quality Gates
+
 Every prompt passes these 11 validation checks:
 
-Gate	Requirement
-metadata_complete	All required fields present (ID, Version, Category, Tags, Complexity, Interaction, Models)
-overview_concise	3 sentences or fewer, no marketing fluff
-role_specific	Concrete expertise defined, not "I'll help you"
-inputs_categorized	Required vs optional distinguished with defaults
-task_structured	3-7 clear numbered steps
-outputs_specified	Format + length + requirements for each deliverable
-criteria_measurable	Objective quality standards, not vague aspirations
-example_realistic	Input shows real usage (20-200 words)
-example_concise	Output demonstrates pattern (100-600 words)
-no_duplication	No repeated information across sections
-copy_paste_ready	Prompt section is standalone and clearly delimited
+| Gate | Requirement |
+|---|---|
+| `metadata_complete` | All required fields present (ID, Version, Category, Tags, Complexity, Interaction, Models) |
+| `overview_concise` | 3 sentences or fewer, no marketing fluff |
+| `role_specific` | Concrete expertise defined, not "I'll help you" |
+| `inputs_categorized` | Required vs optional distinguished with defaults |
+| `task_structured` | 3-7 clear numbered steps |
+| `outputs_specified` | Format + length + requirements for each deliverable |
+| `criteria_measurable` | Objective quality standards, not vague aspirations |
+| `example_realistic` | Input shows real usage (20-200 words) |
+| `example_concise` | Output demonstrates pattern (100-600 words) |
+| `no_duplication` | No repeated information across sections |
+| `copy_paste_ready` | Prompt section is standalone and clearly delimited |
 
 ## Prompt Catalog
 
