@@ -8,6 +8,9 @@
 
 ---
 
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/97796eb3-f372-4f9a-8d76-2c74855b983d" />
+
+
 ## Executive Summary
 
 Enterprise AI delivery requires more than coordinating model development. It requires an integrated operating model connecting business value, product delivery, data readiness, engineering, evaluation, governance, security, operations, adoption, and benefits realization.
