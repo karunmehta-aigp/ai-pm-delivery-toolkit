@@ -1,10 +1,16 @@
-# Project 3 — AI Investment Banking PMO Skills **( This page is still in Draft -- In-Progress) Still Learning: How to code Skills & Agents in Claude **
+# Project 3 — AI Investment Banking PMO Skills
 
 **Author:** Karun Mehta · AIGP · PMP
 
-> **Status: catalog and architecture defined; skills not yet built.** This README documents the skill design and operating model. The actual `SKILL.md` files, plugin metadata, and reference documents referenced below (`plugin.json`, `artifact-contract.md`, `gate-model.md`, individual `SKILL.md` files) do not exist yet in this repository. Treat every command and file path in this document as the intended target state, not something you can run today.
+> **Development Status: Draft / In Progress**
+>
+> The skill catalog, architecture, and operating model are defined. I am currently learning, building, and validating executable Claude Code skills and agents for AI Program Management.
+>
+> The `SKILL.md` files, plugin metadata, and supporting reference documents described below are part of the intended target state and are not yet available in this repository. Commands and file paths should therefore be treated as design examples and are not currently executable.
 
-A reusable skill library for governing and delivering enterprise AI programs across investment banking, capital markets, and regulated financial-services environments.
+A reusable skills library designed to support the governance and delivery of enterprise AI programs across investment banking, capital markets, and regulated financial-services environments.
+
+
 
 ---
 
