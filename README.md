@@ -2,8 +2,7 @@
 
 **Author:** Karun Mehta · AIGP · PMP
 
-> **Early-stage, work-in-progress repository.** This is a personal learning project built while studying AI Program Management concepts and frameworks — not a portfolio of completed professional work or a claim of hands-on delivery experience. Content here reflects ongoing study and experimentation, not verified job history. Please don't use this repository to assess my professional experience or current skill level.
-
+> **Early-stage, work-in-progress repository.** 
 > **Portfolio and educational use.** Content in this repository is provided as reusable starting points, not substitutes for professional judgment, organizational policy, legal review, financial approval, security review, or accountable human decision-making.
 
 ---
@@ -30,12 +29,3 @@ This repository is organized into standalone projects, each focused on a differe
 - **Curious about the automation direction this is heading?** [Project 3](./project-3-ai-pmo-skills/) is planned but not yet built — check back or watch the repo for updates.
 
 ---
-
-## About
-
-Senior Technical Program Manager with 20+ years of experience leading enterprise technology transformation, AI initiatives, quality engineering, and large-scale delivery programs across Financial Services, Wealth Management, Capital Markets, and FinTech.
-
-**Areas of expertise:** AI Governance (AIGP) · AI Program Management · AI Quality Engineering · Responsible AI · Prompt Engineering · Enterprise AI Delivery · Agile / SAFe / PMP
-
-🔗 [LinkedIn](https://www.linkedin.com/in/karun-mehta-aigp-pmp-csm-2a9a155/)
-📧 karunmehta9@gmail.com
