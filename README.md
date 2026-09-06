@@ -16,6 +16,7 @@ This repository is organized into standalone projects, each focused on a differe
 |---|---|
 | [Project 1 — Enterprise AI Program Delivery Playbook](./project-1-ai-delivery/) | The end-to-end delivery operating model: a 12-phase AI program lifecycle, parallel delivery workstreams, governance gates with risk-based tailoring, required artifacts, and decision management — from intake through retirement |
 | [Project 2 — AI PM Prompts](./project-2-ai-prompts/) | The governed prompt library: 30 auditable prompts (PM-01 through AI-PM-05) covering intake through release, each with an illustrative output snapshot |
+| [Project 3 — AI-PMO Skills](./project-3-ai-pmo-skills/) | Reusable AI-PMO skills implementing the Agent/Skill roles from Project 2 — Intake Analyst, Planning Analyst, RAID Analyst, and others *(in progress — nothing built yet)* |
 
 ---
 
@@ -26,12 +27,3 @@ This repository is organized into standalone projects, each focused on a differe
 - **Standing up a new AI program?** Start with [Project 1's lifecycle and workstream model](./project-1-ai-delivery/#5-end-to-end-ai-program-lifecycle) to see where each governance gate and required artifact sits.
 
 ---
-
-## About
-
-Senior Technical Program Manager with 20+ years of experience leading enterprise technology transformation, AI initiatives, quality engineering, and large-scale delivery programs across Financial Services, Wealth Management, Capital Markets, and FinTech.
-
-**Areas of expertise:** AI Governance (AIGP) · AI Program Management · AI Quality Engineering · Responsible AI · Prompt Engineering · Enterprise AI Delivery · Agile / SAFe / PMP
-
-🔗 [LinkedIn](https://www.linkedin.com/in/karun-mehta-aigp-pmp-csm-2a9a155/)
-📧 karunmehta9@gmail.com
