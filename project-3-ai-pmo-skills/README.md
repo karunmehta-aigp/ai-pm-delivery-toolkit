@@ -1,4 +1,4 @@
-# Project 3 — AI Investment Banking PMO Skills *********( Draft -- In-Progress) Learning How to program Skills in claude ******
+# Project 3 — AI Investment Banking PMO Skills *********( Draft -- In-Progress) Still Learning: How to code Skills & Agents in Claude ******
 
 **Author:** Karun Mehta · AIGP · PMP
 
