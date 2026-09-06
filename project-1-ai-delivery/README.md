@@ -328,6 +328,39 @@ Each gate should result in one recorded disposition:
 
 Conditional approval must include the condition, compensating control, accountable owner, due date, expiration, monitoring requirement, and exception authority.
 
+**Right-sizing gates by risk tier and organizational maturity**
+
+The complete G0–G8 model provides a reference structure. Organizations should combine, simplify, or strengthen gates according to their approved risk methodology, regulatory obligations, delivery scale, and organizational maturity — applying the full sequence uniformly to every initiative regardless of risk creates process overhead that slows low-risk experimentation without improving safety where it doesn't matter, which is one of the more common criticisms of enterprise AI governance in practice today.
+
+> The risk tiers and gate mappings below are illustrative. Organizations must apply their own approved risk-classification methodology, policies, and regulatory requirements rather than adopting this table as-is.
+
+NIST's AI Risk Management Framework describes its own playbook as context-specific guidance to be tailored to the system and its risk — not a mandatory checklist to be followed identically for every use case. The tailoring model below applies that same principle to delivery.
+
+| Risk tier | Delivery approach |
+|---|---|
+| Low | Lightweight intake, documented ownership, basic evaluation and monitoring |
+| Moderate | Formal risk assessment, evaluation plan, pilot, operational approval, and periodic review |
+| High | Independent validation, expanded control testing, executive governance, and restricted rollout |
+| Critical | Specialized regulatory review, intensive assurance, continuous oversight, and strict operating limits |
+
+Mapped onto the gate sequence in this section:
+
+| Risk tier | Mandatory gates | Gates that can be combined or lightened |
+|---|---|---|
+| Low | G0, G6 | G1 through G5 compress into a single lightweight intake-to-pilot review; G7/G8 become a standing periodic check rather than a per-change gate |
+| Moderate | G0, G2, G4, G6, G8 | G1+G3 combine into a single mobilization review; G5 folds into G6 as a combined pilot-to-release decision |
+| High | G0, G1, G2, G3, G4, G5, G6, G7, G8 | None — full sequence, with independent validation at G4 and G6 |
+| Critical | G0, G1, G2, G3, G4, G5, G6, G7, G8 | None — full sequence, with specialized regulatory review layered on top of the relevant gates |
+
+**How to apply this in practice**
+
+- Set the risk tier at intake (Section 11 / AI-PM-01-equivalent triage) before deciding how many gates apply — the tier decision is what should be rigorous, not necessarily every downstream gate.
+- Even at Low tier, never skip the human-approval principle in Section 13 — compression means fewer named forums, not the removal of accountable sign-off.
+- Reassess the tier if scope, autonomy, or user population grows — a Low-tier internal tool that becomes customer-facing should re-enter the full gate sequence at the point the risk profile changes, not retroactively.
+- Document the compression decision itself — which gates were combined or skipped and why — so an auditor or successor PM can see it was a deliberate risk-based choice, not an omission.
+
+The judgment to compress this model correctly — knowing which two or three gates actually matter for a given program, rather than running all nine by default — is itself a core AI Program Manager skill, not a shortcut around the framework.
+
 ---
 
 ## 9. Integrated Planning Under Uncertainty
@@ -368,6 +401,35 @@ Every experiment should define:
 - decision and next action.
 
 Failed experiments are useful when they produce documented learning within the approved envelope. Repeated experiments without decision criteria create unmanaged schedule and cost exposure.
+
+**AI delivery backlog structure**
+
+An AI program's backlog is not just feature work. Whatever tool tracks it (Jira, Azure DevOps, or another system of record), the backlog should visibly distinguish these work types so capacity and risk are managed explicitly rather than hidden inside a single undifferentiated queue:
+
+- Business features
+- Data work
+- Experiments
+- Model or prompt changes
+- Evaluation work
+- Governance and control tasks
+- Security work
+- Technical enablers
+- Operational readiness
+- Adoption activities
+- Defects and findings
+- Technical debt
+
+**AI-specific Definition of Done**
+
+A release-bound AI feature, experiment, model, prompt, data, integration, or control work item should satisfy the applicable Definition of Done criteria below. Not every item requires every criterion — a data-cleanup task and a production model release carry different obligations; apply "where applicable" throughout:
+
+- Requirements are traced to the item, where applicable.
+- Evaluation has been completed against the relevant dataset, where applicable.
+- Acceptance thresholds are satisfied, or an accepted exception is recorded, where applicable.
+- Required controls have been tested, where applicable.
+- Monitoring is configured for anything reaching production, where applicable.
+- Documentation is updated, including model/system card entries, where applicable.
+- Required approvals are recorded per the approval matrix in Section 8, where applicable.
 
 ---
 
@@ -450,6 +512,25 @@ Every material AI risk should include:
 - Technical controls should produce testable evidence.
 - Exceptions should be time-bound and monitored.
 - Controls must be reassessed after material changes.
+
+**Agentic AI delivery overlay**
+
+Agentic systems — autonomous, tool-using agents — carry risks broad enough to warrant their own visible checklist rather than sitting only inside the general risk categories above. Before any agentic AI system progresses past design readiness (G3), confirm each of the following is defined and owned:
+
+- Agent inventory and ownership — every agent is registered with a named accountable owner, not just a technical contact.
+- Autonomy classification — mapped to the Autonomy Levels in Section 21 (L0–L4), not assumed.
+- Unique non-human identity — no agent operates under a shared human credential.
+- Least-privilege tool permissions — each tool grant is scoped to the minimum required for the agent's bounded purpose.
+- MCP/API/tool allowlisting — the agent can only call explicitly approved tools and endpoints.
+- Memory and context controls — what the agent retains across sessions, and how that memory is protected from contamination.
+- Action-level approval matrix — which actions the agent may take unsupervised versus which require human approval, per action, not per agent.
+- Reversibility and transaction limits — irreversible or high-value actions are identified and gated separately from routine ones.
+- Multi-agent handoffs — where one agent's output becomes another agent's input, the handoff itself is logged and validated, not assumed correct.
+- Sandbox and simulation — the agent has been tested in an isolated environment before touching production data or systems.
+- Kill switch — a tested, reliable mechanism exists to halt the agent immediately, independent of the agent's own cooperation.
+- Complete action traceability — every action the agent takes is logged with enough context to reconstruct what happened and why, after the fact.
+
+This overlay does not replace AI-PM-03 (Agentic AI Deployment Readiness) in the prompt library — it is the checklist that prompt is designed to produce evidence against.
 
 ---
 
@@ -536,6 +617,23 @@ The program team prepares one of three evidence-based recommendations:
 - **No-Go:** Mandatory evidence, control, approval, or readiness criteria are not satisfied.
 
 The AI system and any AI-assisted reporting tool must not make the final release decision.
+
+**Common controlled-deployment patterns**
+
+Release rarely means a single full cutover. Choose the pattern that fits the risk tier from Section 8, and combine patterns where useful:
+
+- Shadow deployment — the system runs alongside the existing process, producing output that is logged but not acted on.
+- Canary release — a small percentage of traffic or users receives the new system while the majority stays on the prior version.
+- Limited user cohort — a defined, bounded group of users gets access, distinct from a percentage-based canary.
+- A/B testing — the new and prior systems run concurrently for comparison against defined metrics.
+- Champion-challenger model — the current production model (champion) is compared against a candidate (challenger) on live traffic before any promotion decision.
+- Human-review-only launch — every output is reviewed by a human before it reaches the end user or takes effect.
+- Read-only or recommendation-only mode — the system suggests but does not execute; a human takes the action.
+- Phased autonomy — the system starts at a lower autonomy level (Section 21) and is promoted only after evidence at each level.
+- Approved fallback model — a pre-approved simpler or prior model is ready to take over automatically if the primary system fails or is rolled back.
+- Automatic or manual rollback — the rollback trigger and mechanism are defined and tested in advance, not designed at the moment of failure.
+
+A/B testing, live-traffic comparison, and automated fallback must only be used when legally, ethically, and operationally appropriate for the affected users and use case — some contexts (e.g., decisions with safety or legal consequence for individuals) may rule these patterns out regardless of technical feasibility.
 
 ---
 
@@ -802,6 +900,20 @@ RAG status should be based on approved thresholds. It should not be assigned onl
 
 AI can assist the PMO when sources, permissions, validations, ownership, monitoring, and failure handling are defined.
 
+**Autonomy levels (L0–L4)**
+
+This scale is referenced throughout the playbook, including the Agentic AI Delivery Overlay in Section 11, to classify how much unsupervised action any AI system or agent — PMO-facing or otherwise — is permitted to take.
+
+| Level | Permitted AI activity |
+|---|---|
+| L0 – Inform | Explain, summarize, and format |
+| L1 – Analyze | Read approved sources, calculate, and identify issues |
+| L2 – Recommend | Propose options and actions |
+| L3 – Execute with Approval | Perform an authorized, reversible action after human approval |
+| L4 – Bounded Automation | Perform approved, low-impact actions within defined limits |
+
+Recommended starting position for any new AI-PMO capability or agent: L1 or L2. Progress to L3/L4 only after testing, access review, accountable approval, monitoring, rollback, and incident procedures are operating effectively.
+
 | Capability | AI may assist with | Required human control |
 |---|---|---|
 | Intake | Check completeness, summarize, score using approved criteria, and route | Portfolio owner approves disposition |
@@ -881,6 +993,25 @@ Each workstream reports evidence against common criteria:
 
 The Program Manager validates the integrated view. Workstream leaders remain accountable for their evidence. Authorized business, technology, risk, governance, and release authorities retain approval.
 
+**Illustrative case study: AI Claims Triage Assistant (fictional)**
+
+> **All names, dates, figures, and decisions below are fictional.** This case study demonstrates how the artifacts in Section 10 fit together on one program; it is not real delivery evidence and should not be cited as such.
+
+*Context:* A regional insurer wants an AI assistant that triages incoming claims and routes them to the right adjuster queue, flagging likely-fraud cases for human review. Risk tier: Moderate (Section 8) — internal routing decision, no autonomous payout authority, human adjuster makes every final call.
+
+- **Intake:** Submitted by the Claims Operations VP. Problem: adjusters spend ~6 hrs/week manually triaging routine claims. Approved to advance to discovery.
+- **Charter:** Objective — reduce manual triage time by a target amount within two quarters of full rollout, with fraud-flag precision as a hard guardrail. Sponsor: Claims Operations VP. PM authority: Tier 2.
+- **RACI (excerpt):** Data readiness — Accountable: Data Owner (Claims Data team); Consulted: Legal, Security.
+- **Integrated plan:** 12-phase lifecycle applied at Moderate tailoring — G0, G2, G4, G6, G8 as mandatory gates (per Section 8), with G1+G3 and G5+G6 combined.
+- **RAID register (excerpt):** Risk — "Fraud-flag model trained on 18-month-old data may not reflect current fraud patterns." Residual score: Medium. Mitigation: refresh training data before pilot; owner: ML Lead; review cadence: monthly.
+- **Evaluation scorecard (excerpt):** Routing accuracy on golden set: within approved threshold. Precision and recall thresholds for the fraud-flag model were established jointly by the Claims, Fraud, Risk, and Evaluation owners based on the operational impact of false positives and false negatives — recall was not treated as a lesser metric given that low recall risks missed suspicious claims.
+- **Gate decision:** G4 (Evaluation Readiness) — Approved with Conditions. Condition: both precision and recall to be re-evaluated after 30 days of pilot data against the jointly-approved thresholds; owner: Evaluation Lead; review date set.
+- **Release-readiness heatmap (excerpt):** Data authorization — Green. Security testing — Green. Human-review workflow for fraud flags — Green. Rollback rehearsal — Amber, scheduled before G6.
+- **Executive status (excerpt):** Overall Amber this period — on track functionally, one open condition from G4 pending its 30-day review.
+- **Benefits dashboard (excerpt):** Baseline manual triage time captured pre-launch; first post-pilot measurement scheduled 30 days after rollout, owned by Claims Operations VP.
+
+This sequence shows the artifacts in Section 10 as a connected chain rather than a checklist completed in isolation — each one both consumes evidence from the previous step and produces evidence the next step depends on.
+
 ---
 
 ## 23. Program Manager Readiness Checklist
@@ -939,7 +1070,7 @@ The Program Manager validates the integrated view. Workstream leaders remain acc
 
 This playbook defines what must be managed across an AI program.
 
-The companion **Project 2 - AI PM Prompts** provides governed prompts for producing and reviewing delivery artifacts such as:
+The companion [**Project 2 – AI PM Prompts**](../project-2-ai-prompts/) provides governed prompts for producing and reviewing delivery artifacts such as:
 
 - intake assessments;
 - charters and RACI models;
@@ -951,7 +1082,7 @@ The companion **Project 2 - AI PM Prompts** provides governed prompts for produc
 - AI-assisted output validation;
 - prompt evaluation and change control.
 
-The broader **AIGOF - AI Governance Operating Framework** is maintained in the `AI-Governance` repository. It provides the detailed governance layer, including AI inventory, risk classification, control library, framework crosswalks, approval gates, policy structure, monitoring, and maturity assessment.
+The broader [**AIGOF – AI Governance Operating Framework**](https://github.com/karunmehta-aigp/AI-Governance) is maintained in the `AI-Governance` repository. It provides the detailed governance layer, including AI inventory, risk classification, control library, framework crosswalks, approval gates, policy structure, monitoring, and maturity assessment.
 
 **Recommended relationship:**
 
